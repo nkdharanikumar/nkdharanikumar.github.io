@@ -1,164 +1,104 @@
-/*
- * Portfolio Interactions
- */
+const header = document.querySelector("[data-header]");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelectorAll(".site-nav a");
+const year = document.querySelector("[data-year]");
+const clock = document.querySelector("[data-clock]");
+const cursor = document.querySelector(".cursor");
+const trailRoot = document.querySelector(".cursor-trail");
 
-document.addEventListener('DOMContentLoaded', () => {
-    initCursor();
-    initScrollReveal();
-    initSmoothScroll();
-    initMobileMenu();
-    initFormHandler();
+year.textContent = new Date().getFullYear();
+
+const setHeaderState = () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 8);
+};
+
+const updateClock = () => {
+  const now = new Date();
+  clock.textContent = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(now) + " IST";
+};
+
+setHeaderState();
+updateClock();
+window.addEventListener("scroll", setHeaderState, { passive: true });
+window.setInterval(updateClock, 1000);
+
+navToggle.addEventListener("click", () => {
+  const isOpen = document.body.classList.toggle("nav-open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
 });
 
-// Custom Cursor Logic
-function initCursor() {
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-    
-    // Only active on non-touch devices
-    if (matchMedia('(pointer:fine)').matches) {
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    document.body.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open navigation");
+  });
+});
 
-            // Dot follows instantly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
+if (window.matchMedia("(pointer: fine)").matches) {
+  const trailDots = Array.from({ length: 5 }, () => {
+    const dot = document.createElement("span");
+    dot.className = "trail-dot";
+    trailRoot.appendChild(dot);
+    return { node: dot, x: 0, y: 0 };
+  });
 
-            // Outline follows with slight delay (animation usually done via CSS transition or requestAnimationFrame)
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
 
-        // Add hover effects for clickable elements
-        const clickables = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-item');
-        
-        clickables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.backgroundColor = 'transparent';
-            });
-        });
-    } else {
-        // Hide custom cursor on touch devices to avoid confusion
-        cursorDot.style.display = 'none';
-        cursorOutline.style.display = 'none';
-    }
-}
+  window.addEventListener("mousemove", (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    cursor.classList.add("is-visible");
+    trailDots.forEach((dot) => {
+      dot.node.style.opacity = "1";
+    });
+  });
 
-// Scroll Reveal Animation (Intersection Observer)
-function initScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener("mouseleave", () => {
+    cursor.classList.remove("is-visible");
+    trailDots.forEach((dot) => {
+      dot.node.style.opacity = "0";
+    });
+  });
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Optional: Stop observing once revealed
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        root: null,
-        threshold: 0.15, // Trigger when 15% visible
-        rootMargin: "0px"
+  document.querySelectorAll("a, button, .magnetic").forEach((element) => {
+    element.addEventListener("mouseenter", () => cursor.classList.add("is-hovering"));
+    element.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
+  });
+
+  document.querySelectorAll(".work-card").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      cursor.classList.remove("is-hovering");
+      cursor.classList.add("is-viewing");
+    });
+    card.addEventListener("mouseleave", () => cursor.classList.remove("is-viewing"));
+  });
+
+  const animateCursor = () => {
+    cursorX += (mouseX - cursorX) * 0.2;
+    cursorY += (mouseY - cursorY) * 0.2;
+    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+
+    trailDots.forEach((dot, index) => {
+      const targetX = index === 0 ? cursorX : trailDots[index - 1].x;
+      const targetY = index === 0 ? cursorY : trailDots[index - 1].y;
+      dot.x += (targetX - dot.x) * 0.24;
+      dot.y += (targetY - dot.y) * 0.24;
+      dot.node.style.transform = `translate(${dot.x}px, ${dot.y}px) translate(-50%, -50%)`;
     });
 
-    reveals.forEach(reveal => revealObserver.observe(reveal));
-}
+    requestAnimationFrame(animateCursor);
+  };
 
-// Navigation Visuals & Smooth Scroll
-function initSmoothScroll() {
-    const navbar = document.querySelector('.navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Smooth Scroll for Anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Update active state manually
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            }
-        });
-    });
-}
-
-// Mobile Menu (To be implemented with structure)
-function initMobileMenu() {
-    // Logic will be added once HTML structure for mobile toggle is confirmed
-}
-
-// Form Handling (Formspree)
-function initFormHandler() {
-    const form = document.getElementById('contact-form');
-    
-    if (form) {
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            const button = form.querySelector('button[type="submit"]');
-            const status = document.getElementById('form-status');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            button.disabled = true;
-
-            const data = new FormData(event.target);
-            
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    status.innerHTML = "Thanks for your message! I'll get back to you soon 🚀";
-                    status.style.color = "#4ade80"; // Green
-                    form.reset();
-                } else {
-                    const data = await response.json();
-                    if (Object.hasOwnProperty.call(data, 'errors')) {
-                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        status.innerHTML = "Oops! There was a problem submitting your form";
-                    }
-                    status.style.color = "#f87171"; // Red
-                }
-            } catch (error) {
-                status.innerHTML = "Oops! There was a problem submitting your form";
-                status.style.color = "#f87171";
-            }
-            
-            button.innerHTML = originalText;
-            button.disabled = false;
-        });
-    }
+  animateCursor();
 }

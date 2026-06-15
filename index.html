@@ -1,354 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dharanikumar N K portfolio - Cloud and DevOps engineer building AWS, Terraform, Docker, Jenkins, and Linux automation."
+    />
+    <title>Dharanikumar N K | Cloud & DevOps Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span>open</span></div>
+    <div class="cursor-trail" aria-hidden="true"></div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHARANIKUMAR N K | DevOps Engineer & Cloud Architect</title>
-    <meta name="description"
-        content="Portfolio of Dharanikumar N K, a DevOps Engineer specializing in AWS, Docker, and CI/CD automation.">
-
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <!-- Background -->
-    <div class="bg-gradient"></div>
-    <div class="noise-overlay"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo text-gradient">DK</a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#projects" class="nav-link">Work</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">
-                Let's Talk <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </nav>
+    <header class="site-header" data-header>
+      <a class="brand magnetic" href="#home" aria-label="Dharanikumar N K home">
+        <span class="brand-mark"></span>
+        <span>DK / Cloud&amp;Ops</span>
+      </a>
+      <button class="nav-toggle magnetic" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#work"><span>01</span> Work</a>
+        <a href="#about"><span>02</span> About</a>
+        <a href="#stack"><span>03</span> Stack</a>
+        <a href="#contact"><span>04</span> Contact</a>
+      </nav>
+      <a class="hire-link magnetic" href="mailto:nkdharanikumar@gmail.com">Hire me &nearr;</a>
+    </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container hero-grid">
-                <div class="hero-text reveal">
-                    <span class="hero-badge">Available for Hire</span>
-                    <h1 class="hero-title">Building Scalable <br> <span class="text-gradient">Cloud Solutions</span>
-                    </h1>
-                    <p class="hero-description">
-                        Hi, I'm <strong>Dharanikumar N K</strong>. A DevOps Engineer & Cloud Architect passionate about
-                        automating infrastructure, containerized deployments, and building resilient CI/CD pipelines.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn btn-secondary">
-                            <i class="fas fa-eye"></i> Projects
-                        </a>
-                        <a href="DHARANIKUMAR N K.pdf" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-file-pdf"></i> Resume
-                        </a>
-                        <a href="https://github.com/nkdharanikumar" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/nkdharanikumar" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
-                </div>
-                <!-- Abstract visual representation could go here, for now empty or simple graphic -->
-                <div class="hero-visual reveal">
-                    <!-- Retain the icon look but modernized -->
-                    <div
-                        style="font-size: 15rem; text-align: center; color: rgba(99, 102, 241, 0.1); filter: drop-shadow(0 0 50px rgba(99, 102, 241, 0.3));">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                </div>
+      <section class="hero" id="home">
+        <div class="topline section-pad">
+          <p><span class="status-dot"></span> Available for Cloud / DevOps roles - 2026</p>
+          <p>Coimbatore, India <span data-clock>IST</span></p>
+        </div>
+
+        <div class="hero-grid section-pad">
+          <div class="hero-copy">
+            <p class="kicker"><span>*</span> Portfolio / 2026 edition</p>
+            <h1>
+              Dharani<span>.</span><br />
+              <em>building</em> infra
+            </h1>
+            <p class="hero-summary">
+              Cloud &amp; DevOps engineer turning manual deployments into repeatable systems with
+              AWS, Terraform, Docker, Jenkins, Kubernetes, and Linux.
+            </p>
+          </div>
+
+          <aside class="hero-panel" aria-label="Portfolio highlights">
+            <div class="panel-row">
+              <span>Focus</span>
+              <strong>CI/CD + IaC</strong>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <h2 class="section-title">Featured Work</h2>
-                    <p class="section-subtitle">Infrastructure As Code</p>
-                </div>
-
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <!-- Placeholder for actual image, using gradient/icon for now -->
-                            <div
-                                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: #0f172a;">
-                                <i class="fab fa-aws" style="font-size: 5rem; color: #ff9900;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">AWS S3</span>
-                                <span class="tag">Lambda</span>
-                                <span class="tag">DynamoDB</span>
-                            </div>
-                            <h3 class="project-title">AWS File Vault</h3>
-                            <p class="project-desc">Serverless cloud storage solution for secure file management.
-                                Implemented IAM isolation and SNS notifications.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/nkdharanikumar" class="link-item" target="_blank">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div
-                                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: #0f172a;">
-                                <i class="fas fa-infinity" style="font-size: 5rem; color: #6366f1;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Jenkins</span>
-                                <span class="tag">Docker</span>
-                                <span class="tag">SonarQube</span>
-                            </div>
-                            <h3 class="project-title">Automated CI/CD Pipeline</h3>
-                            <p class="project-desc">Architected a Jenkins pipeline automating code pulls, quality
-                                analysis, and Docker container deployment.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/nkdharanikumar" class="link-item" target="_blank">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div
-                                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: #0f172a;">
-                                <i class="fas fa-globe" style="font-size: 5rem; color: #06b6d4;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">HTML5</span>
-                                <span class="tag">CSS3</span>
-                                <span class="tag">JavaScript</span>
-                            </div>
-                            <h3 class="project-title">Portfolio Website</h3>
-                            <p class="project-desc">Modern, responsive DevOps portfolio with animations, dark mode, and
-                                smooth scrolling effects.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/nkdharanikumar/nkdharanikumar.github.io" class="link-item"
-                                    target="_blank">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                                <a href="https://nkdharanikumar.github.io" class="link-item" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Live
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="panel-row">
+              <span>Projects</span>
+              <strong>3 production-style builds</strong>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" style="background: rgba(255,255,255,0.02);">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2 class="section-title">Technical Arsenal</h2>
-                    <p class="section-subtitle">Tools & Technologies</p>
-                </div>
-
-                <div class="skills-container reveal">
-                    <div class="skill-item">
-                        <i class="fab fa-aws skill-icon"></i>
-                        <h4>AWS</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-docker skill-icon"></i>
-                        <h4>Docker</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-jenkins skill-icon"></i>
-                        <h4>Jenkins</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-linux skill-icon"></i>
-                        <h4>Linux</h4>
-                    </div>
-                    <!-- Added SonarQube generic icon since specific might not be in standard FA free set, using check-circle -->
-                    <div class="skill-item">
-                        <i class="fas fa-check-circle skill-icon"></i>
-                        <h4>SonarQube</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-git-alt skill-icon"></i>
-                        <h4>Git</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-terminal skill-icon"></i>
-                        <h4>Bash</h4>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-network-wired skill-icon"></i>
-                        <h4>Networking</h4>
-                    </div>
-                </div>
+            <div class="panel-row">
+              <span>Education</span>
+              <strong>B.E. ECE, 2023-2027</strong>
             </div>
-        </section>
+            <a class="panel-cta magnetic" href="#work">See selected work &rarr;</a>
+            <a class="panel-cta filled magnetic" href="mailto:nkdharanikumar@gmail.com">Start a conversation &rarr;</a>
+          </aside>
+        </div>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2 class="section-title">Journey</h2>
-                    <p class="section-subtitle">Education & Certifications</p>
-                </div>
+        <div class="skill-marquee" aria-label="Primary tools">
+          <div class="marquee-track">
+            <span>AWS</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes</span><i></i>
+            <span>Linux</span><i></i><span>Jenkins</span><i></i><span>SonarQube</span><i></i><span>GitHub</span><i></i>
+            <span>Python</span><i></i><span>Bash</span><i></i><span>Prometheus</span><i></i><span>Grafana</span><i></i>
+            <span>AWS</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes</span><i></i>
+            <span>Linux</span><i></i><span>Jenkins</span><i></i><span>SonarQube</span><i></i><span>GitHub</span><i></i>
+            <span>Python</span><i></i><span>Bash</span><i></i><span>Prometheus</span><i></i><span>Grafana</span><i></i>
+          </div>
+        </div>
+      </section>
 
-                <div class="projects-grid" style="grid-template-columns: 1fr;">
-                    <!-- Education Item 1 -->
-                    <div class="project-card reveal"
-                        style="padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-                        <div style="flex: 1;">
-                            <h3 style="margin-bottom: 0.5rem; color: var(--primary);">B.E (Electronics and
-                                Communication)</h3>
-                            <p style="color: var(--text-main); font-weight: 600;">Sri Shakthi Institute of Engineering
-                                and Technology</p>
-                            <p style="color: var(--text-muted);">2022 - 2026 | CGPA: 8.02</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
-                            <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--text-muted);"></i>
-                        </div>
-                    </div>
+      <section class="section section-pad" id="work">
+        <div class="section-head">
+          <p class="kicker"><span>*</span> Selected engineering work</p>
+          <h2>Not just projects. Proof that he can ship.</h2>
+        </div>
 
-                    <!-- Education Item 2 -->
-                    <div class="project-card reveal"
-                        style="padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-                        <div style="flex: 1;">
-                            <h3 style="margin-bottom: 0.5rem;">AWS Cloud Quest</h3>
-                            <p style="color: var(--text-main); font-weight: 600;">Amazon Web Services</p>
-                            <p style="color: var(--text-muted);">2024 - Cloud Practitioner Proficiency</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
-                            <i class="fab fa-aws" style="font-size: 2rem; color: #ff9900;"></i>
-                        </div>
-                    </div>
-
-                    <!-- Education Item 3 -->
-                    <div class="project-card reveal"
-                        style="padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-                        <div style="flex: 1;">
-                            <h3 style="margin-bottom: 0.5rem;">DevOps with Docker</h3>
-                            <p style="color: var(--text-main); font-weight: 600;">University of Helsinki</p>
-                            <p style="color: var(--text-muted);">2024 - Containerization & Orchestration</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
-                            <i class="fab fa-docker" style="font-size: 2rem; color: #06b6d4;"></i>
-                        </div>
-                    </div>
-                </div>
+        <div class="work-list">
+          <article class="work-card">
+            <div class="work-number">01</div>
+            <div class="work-visual cicd" aria-hidden="true">
+              <span>GitHub</span>
+              <span>CodePipeline</span>
+              <span>CodeBuild</span>
+              <span>Docker Hub</span>
+              <span>CodeDeploy</span>
+              <span>EC2</span>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's Build Something Amazing</p>
-                </div>
-
-                <div class="contact-grid reveal">
-                    <div class="contact-info">
-                        <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.1rem;">
-                            I'm currently looking for new opportunities. Whether you have a question or just want to say
-                            hi, my inbox is always open!
-                        </p>
-
-                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                            <a href="mailto:nkdharanikumar@gmail.com" class="link-item" style="font-size: 1.1rem;">
-                                <i class="fas fa-envelope" style="color: var(--primary);"></i> nkdharanikumar@gmail.com
-                            </a>
-                            <a href="tel:+919677332636" class="link-item" style="font-size: 1.1rem;">
-                                <i class="fas fa-phone" style="color: var(--secondary);"></i> +91 9677332636
-                            </a>
-                            <div class="link-item" style="font-size: 1.1rem;">
-                                <i class="fas fa-map-marker-alt" style="color: var(--text-main);"></i> India
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Functional Contact Form -->
-                    <!-- REPLACE 'YOUR_FORM_ID' WITH YOUR ACTUAL FORMSPREE ID -->
-                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-                        class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required
-                                placeholder="john@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-input" required
-                                placeholder="Tell me about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Send Message <i class="fas fa-paper-plane"></i>
-                        </button>
-                        <p id="form-status" style="margin-top: 1rem; font-size: 0.9rem;"></p>
-                    </form>
-                </div>
+            <div class="work-copy">
+              <p class="work-type">AWS native delivery</p>
+              <h3>AWS Native CI/CD Pipeline - Dockerized App Deployment</h3>
+              <p>
+                Built an end-to-end AWS pipeline that automates Docker image builds and deploys a
+                Flask application to EC2 using CodePipeline, CodeBuild, CodeDeploy, IAM, and GitHub.
+              </p>
+              <div class="impact-grid">
+                <span>Reduced manual deployment overhead</span>
+                <span>Container images pushed to Docker Hub</span>
+                <span>Lifecycle hooks for smooth rollout</span>
+              </div>
+              <div class="tags">
+                <span>AWS CodePipeline</span><span>CodeBuild</span><span>CodeDeploy</span><span>Docker</span><span>EC2</span><span>IAM</span>
+              </div>
             </div>
-        </section>
+          </article>
+
+          <article class="work-card">
+            <div class="work-number">02</div>
+            <div class="work-visual terraform" aria-hidden="true">
+              <span>VPC</span>
+              <span>Public subnet</span>
+              <span>Internet gateway</span>
+              <span>Security groups</span>
+              <span>EC2 bootstrap</span>
+              <span>Flask app</span>
+            </div>
+            <div class="work-copy">
+              <p class="work-type">Infrastructure as Code</p>
+              <h3>Terraform-Based AWS EC2 Flask Deployment</h3>
+              <p>
+                Automated AWS provisioning with Terraform, including a custom VPC, public subnet,
+                internet gateway, security groups, and EC2 bootstrapping for a public Flask app.
+              </p>
+              <div class="impact-grid">
+                <span>Repeatable cloud environment</span>
+                <span>Network traffic controlled with security groups</span>
+                <span>Linux-based instance automation</span>
+              </div>
+              <div class="tags">
+                <span>Terraform</span><span>AWS EC2</span><span>VPC</span><span>Security Groups</span><span>Python Flask</span><span>Linux</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-number">03</div>
+            <div class="work-visual jenkins" aria-hidden="true">
+              <span>GitHub</span>
+              <span>Jenkins</span>
+              <span>SonarQube</span>
+              <span>Docker</span>
+              <span>EC2</span>
+              <span>Linux</span>
+            </div>
+            <div class="work-copy">
+              <p class="work-type">Quality-gated CI/CD</p>
+              <h3>Automated CI/CD Pipeline with Code Quality Analysis</h3>
+              <p>
+                Created a Jenkins pipeline that pulls source from GitHub, runs SonarQube quality
+                analysis, and deploys through Docker containers on an Amazon EC2 Linux server.
+              </p>
+              <div class="impact-grid">
+                <span>Quality analysis before deployment</span>
+                <span>Dockerized release path</span>
+                <span>Remote EC2 operations with Linux and PuTTY</span>
+              </div>
+              <div class="tags">
+                <span>Jenkins</span><span>SonarQube</span><span>Docker</span><span>GitHub</span><span>Amazon EC2</span><span>PuTTY</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section section-pad" id="about">
+        <div class="sticky-title">
+          <p class="kicker"><span>*</span> About</p>
+          <h2>A fresher with builder energy and DevOps muscle.</h2>
+        </div>
+        <div class="about-flow">
+          <p class="large-copy">
+            I am Dharanikumar N K, an aspiring Cloud and DevOps Engineer focused on automating
+            infrastructure and streamlining CI/CD workflows. I like the discipline of turning a
+            messy deployment path into a documented, repeatable system.
+          </p>
+
+          <div class="stat-matrix">
+            <article>
+              <span>CGPA</span>
+              <strong>7.98</strong>
+              <p>Sri Shakthi Institute of Engineering and Technology</p>
+            </article>
+            <article>
+              <span>HSC</span>
+              <strong>84.5%</strong>
+              <p>Vidya Mandir Matriculation Higher Secondary School</p>
+            </article>
+            <article>
+              <span>Core</span>
+              <strong>AWS</strong>
+              <p>Cloud Practitioner Essentials and Cloud Quest training</p>
+            </article>
+            <article>
+              <span>Goal</span>
+              <strong>Ship</strong>
+              <p>Reliable automation with clean handoffs and clear docs</p>
+            </article>
+          </div>
+
+          <div class="timeline">
+            <article>
+              <span>2023 - 2027</span>
+              <h3>B.E. Electronics and Communication</h3>
+              <p>Sri Shakthi Institute of Engineering and Technology, Coimbatore</p>
+            </article>
+            <article>
+              <span>2022 - 2023</span>
+              <h3>Higher Secondary Certificate</h3>
+              <p>Vidya Mandir Matriculation Higher Secondary School, Tirupur</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stack-section" id="stack">
+        <div class="section-pad">
+          <div class="section-head">
+            <p class="kicker"><span>*</span> Stack ordered by hiring signal</p>
+            <h2>Tools that map directly to DevOps work.</h2>
+          </div>
+          <div class="stack-grid">
+            <article>
+              <span>01</span>
+              <h3>Cloud &amp; Infrastructure</h3>
+              <ul>
+                <li>AWS</li>
+                <li>Terraform</li>
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>Linux</li>
+              </ul>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>CI/CD &amp; Quality</h3>
+              <ul>
+                <li>Jenkins</li>
+                <li>GitHub</li>
+                <li>SonarQube</li>
+                <li>AWS CodePipeline</li>
+                <li>AWS CodeBuild</li>
+                <li>AWS CodeDeploy</li>
+              </ul>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Code &amp; Automation</h3>
+              <ul>
+                <li>Python</li>
+                <li>Bash</li>
+                <li>Flask</li>
+                <li>Linux commands</li>
+                <li>PuTTY</li>
+              </ul>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Monitoring &amp; Visibility</h3>
+              <ul>
+                <li>Prometheus</li>
+                <li>Grafana</li>
+                <li>Deployment checks</li>
+                <li>Code quality gates</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-pad proof-section">
+        <div class="section-head">
+          <p class="kicker"><span>*</span> Certifications &amp; training</p>
+          <h2>Signals that support the build work.</h2>
+        </div>
+        <div class="proof-grid">
+          <article><span>AWS</span><h3>AWS Cloud Practitioner Essentials</h3><p>Amazon Web Services</p></article>
+          <article><span>Docker</span><h3>DevOps with Docker</h3><p>University of Helsinki</p></article>
+          <article><span>AWS</span><h3>AWS Cloud Quest: Cloud Practitioner</h3><p>Amazon Web Services</p></article>
+          <article><span>Forage</span><h3>AWS Solutions Architecture Job Simulation</h3><p>Forage</p></article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="section-pad contact-grid">
+          <div>
+            <h2><em>something</em> boring<span>.</span></h2>
+            <a class="email-link magnetic" href="mailto:nkdharanikumar@gmail.com">&rarr; nkdharanikumar@gmail.com</a>
+            <div class="social-row">
+              <a href="https://github.com/nkdharanikumar" target="_blank" rel="noreferrer">GitHub &nearr;</a>
+              <a href="https://www.linkedin.com/in/nkdharanikumar/" target="_blank" rel="noreferrer">LinkedIn &nearr;</a>
+              <a href="https://leetcode.com/u/nkdharanikumar/" target="_blank" rel="noreferrer">LeetCode &nearr;</a>
+              <a href="tel:+919677332636">+91 96773 32636</a>
+            </div>
+          </div>
+
+          <aside class="availability-card">
+            <p class="kicker">Currently</p>
+            <dl>
+              <div><dt>Status</dt><dd><span class="status-dot"></span> Open to roles</dd></div>
+              <div><dt>Notice</dt><dd>Immediate / internship-ready</dd></div>
+              <div><dt>Roles</dt><dd>Cloud Eng. / DevOps / SRE Intern</dd></div>
+              <div><dt>Reply time</dt><dd>&lt; 24h</dd></div>
+            </dl>
+            <a class="panel-cta light magnetic" href="mailto:nkdharanikumar@gmail.com?subject=DevOps%20opportunity%20for%20Dharanikumar">Send brief &nearr;</a>
+          </aside>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="social-links">
-                <a href="https://github.com/nkdharanikumar" target="_blank" class="social-link"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/nk-dharanikumar" target="_blank" class="social-link"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://leetcode.com/nkdharanikumar" target="_blank" class="social-link"><i
-                        class="fas fa-code"></i></a> <!-- Using generic code icon for LeetCode -->
-                <a href="mailto:nkdharanikumar@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-                &copy; 2026 Dharanikumar N K. Built with <span style="color: var(--primary);">Antigravity</span> & <span
-                    style="color: var(--secondary);">Coffee</span>.
-            </p>
-        </div>
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> Dharanikumar N K - Coimbatore</p>
+      <p><em>Designed &amp; engineered with intent.</em></p>
+      <a href="#home">Back to top &uarr;</a>
     </footer>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
-
-
-
