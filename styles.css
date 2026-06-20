@@ -117,6 +117,18 @@ p {
   padding-left: clamp(1.25rem, 4vw, 4.5rem);
 }
 
+.brand-text {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 2ch;
+  transition: color 0.2s ease;
+}
+
+.brand-text .dud {
+  color: var(--accent);
+  opacity: 0.7;
+}
+
 .brand-mark,
 .status-dot,
 .marquee-track i {
@@ -442,9 +454,39 @@ h1 em,
 .work-visual::before {
   position: absolute;
   inset: 12%;
-  border: 1px solid rgba(255, 90, 31, 0.24);
+  border: 1px solid rgba(255, 90, 31, 0.22);
   content: "";
   transform: skewY(-8deg);
+  background: linear-gradient(180deg, rgba(255, 90, 31, 0.03), transparent);
+  box-shadow: inset 0 0 15px rgba(255, 90, 31, 0.05);
+}
+
+.work-visual::after {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.work-visual.eks::after {
+  content: "SYS_EKS // CLUSTER_OK // HELM_SYNC // ARGO_ACTIVE";
+}
+
+.work-visual.cicd::after {
+  content: "SYS_CI_CD // BUILD_PASS // ECR_PUSH // EC2_READY";
+}
+
+.work-visual.terraform::after {
+  content: "SYS_IaC // VPC_UP // TG_HEALTHY // TF_APPLIED";
+}
+
+.work-visual.jenkins::after {
+  content: "SYS_QUALITY // LINT_OK // SONAR_PASS // DOCKER_RUN";
 }
 
 .work-copy {
@@ -540,7 +582,7 @@ h1 em,
   display: block;
   margin: 0.6rem 0;
   color: var(--accent);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
   line-height: 1;
 }
 
@@ -907,6 +949,73 @@ h1 em,
     justify-self: start;
   }
 }
+
+/* Intro Overlay Styles */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #070708;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#intro-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#intro-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-hint {
+  position: absolute;
+  bottom: 8%;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: pulse-hint 2s infinite ease-in-out;
+  z-index: 10;
+}
+
+@keyframes pulse-hint {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-4px);
+  }
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   *,

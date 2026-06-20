@@ -14,9 +14,14 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
+    <!-- Intro ASCII-style overlay (shows on first load) -->
+    <div id="intro-overlay" aria-hidden="true">
+      <canvas id="intro-canvas"></canvas>
+      <div class="intro-hint">Click anywhere to enter</div>
+    </div>
     <div class="grain" aria-hidden="true"></div>
     <div class="cursor" aria-hidden="true"><span>open</span></div>
     <div class="cursor-trail" aria-hidden="true"></div>
@@ -24,7 +29,7 @@
     <header class="site-header" data-header>
       <a class="brand magnetic" href="#home" aria-label="Dharanikumar N K home">
         <span class="brand-mark"></span>
-        <span>DK / Cloud&amp;Ops</span>
+        <span class="brand-text">DK</span>
       </a>
       <button class="nav-toggle magnetic" type="button" aria-label="Open navigation" aria-expanded="false">
         <span></span>
@@ -50,27 +55,26 @@
           <div class="hero-copy">
             <p class="kicker"><span>*</span> Portfolio / 2026 edition</p>
             <h1>
-              Dharani<span>.</span><br />
+              DK<span>.</span><br />
               <em>building</em> infra
             </h1>
             <p class="hero-summary">
-              Cloud &amp; DevOps engineer turning manual deployments into repeatable systems with
-              AWS, Terraform, Docker, Jenkins, Kubernetes, and Linux.
+              Cloud &amp; DevOps engineer automating infrastructure and building GitOps-driven deployment pipelines with AWS (EKS), Terraform, Kubernetes, ArgoCD, Docker, and CI/CD workflows.
             </p>
           </div>
 
           <aside class="hero-panel" aria-label="Portfolio highlights">
             <div class="panel-row">
+              <span>Current Stack</span>
+              <strong>AWS • Terraform • Kubernetes</strong>
+            </div>
+            <div class="panel-row">
+              <span>Latest Project</span>
+              <strong>GitOps on Amazon EKS</strong>
+            </div>
+            <div class="panel-row">
               <span>Focus</span>
-              <strong>CI/CD + IaC</strong>
-            </div>
-            <div class="panel-row">
-              <span>Projects</span>
-              <strong>3 production-style builds</strong>
-            </div>
-            <div class="panel-row">
-              <span>Education</span>
-              <strong>B.E. ECE, 2023-2027</strong>
+              <strong>Cloud Infrastructure &amp; Automation</strong>
             </div>
             <a class="panel-cta magnetic" href="#work">See selected work &rarr;</a>
             <a class="panel-cta filled magnetic" href="mailto:nkdharanikumar@gmail.com">Start a conversation &rarr;</a>
@@ -79,25 +83,56 @@
 
         <div class="skill-marquee" aria-label="Primary tools">
           <div class="marquee-track">
-            <span>AWS</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes</span><i></i>
-            <span>Linux</span><i></i><span>Jenkins</span><i></i><span>SonarQube</span><i></i><span>GitHub</span><i></i>
-            <span>Python</span><i></i><span>Bash</span><i></i><span>Prometheus</span><i></i><span>Grafana</span><i></i>
-            <span>AWS</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes</span><i></i>
-            <span>Linux</span><i></i><span>Jenkins</span><i></i><span>SonarQube</span><i></i><span>GitHub</span><i></i>
-            <span>Python</span><i></i><span>Bash</span><i></i><span>Prometheus</span><i></i><span>Grafana</span><i></i>
+            <span>AWS (EKS)</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes (k8s)</span><i></i>
+            <span>ArgoCD</span><i></i><span>Helm</span><i></i><span>Linux</span><i></i><span>Jenkins</span><i></i>
+            <span>SonarQube</span><i></i><span>GitHub Actions</span><i></i><span>Python</span><i></i><span>Bash</span><i></i>
+            <span>Prometheus</span><i></i><span>Grafana</span><i></i>
+            <span>AWS (EKS)</span><i></i><span>Terraform</span><i></i><span>Docker</span><i></i><span>Kubernetes (k8s)</span><i></i>
+            <span>ArgoCD</span><i></i><span>Helm</span><i></i><span>Linux</span><i></i><span>Jenkins</span><i></i>
+            <span>SonarQube</span><i></i><span>GitHub Actions</span><i></i><span>Python</span><i></i><span>Bash</span><i></i>
+            <span>Prometheus</span><i></i><span>Grafana</span><i></i>
           </div>
         </div>
       </section>
 
       <section class="section section-pad" id="work">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="kicker"><span>*</span> Selected engineering work</p>
-          <h2>Not just projects. Proof that he can ship.</h2>
+          <h2>Hands-on builds. Systems I've deployed to learn the cloud.</h2>
         </div>
 
         <div class="work-list">
           <article class="work-card">
             <div class="work-number">01</div>
+            <div class="work-visual eks" aria-hidden="true">
+              <span>GitHub Actions</span>
+              <span>Amazon ECR</span>
+              <span>Helm Chart</span>
+              <span>ArgoCD</span>
+              <span>Amazon EKS</span>
+              <span>ALB Ingress</span>
+            </div>
+            <div class="work-copy">
+              <p class="work-type">GitOps &amp; Cloud Native</p>
+              <h3>Amazon EKS App Deployment via GitOps (ArgoCD &amp; Helm)</h3>
+              <p>
+                Built a production-ready GitOps pipeline deploying a microservice on Amazon EKS,
+                leveraging GitHub Actions for CI, ArgoCD for automated CD, AWS Secrets Manager with IRSA
+                for secure credentials, and AWS Load Balancer Controller for dynamic ALB routing.
+              </p>
+              <div class="impact-grid">
+                <span>Automated sync &amp; drift correction with ArgoCD</span>
+                <span>Fine-grained pod permissions via IAM (IRSA)</span>
+                <span>Cluster monitoring with Prometheus &amp; Grafana</span>
+              </div>
+              <div class="tags">
+                <span>Amazon EKS</span><span>ArgoCD</span><span>Helm</span><span>GitHub Actions</span><span>AWS Secrets Manager</span><span>IRSA</span><span>ALB Ingress</span><span>Prometheus</span><span>Grafana</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-number">02</div>
             <div class="work-visual cicd" aria-hidden="true">
               <span>GitHub</span>
               <span>CodePipeline</span>
@@ -125,7 +160,7 @@
           </article>
 
           <article class="work-card">
-            <div class="work-number">02</div>
+            <div class="work-number">03</div>
             <div class="work-visual terraform" aria-hidden="true">
               <span>VPC</span>
               <span>Public subnet</span>
@@ -153,7 +188,7 @@
           </article>
 
           <article class="work-card">
-            <div class="work-number">03</div>
+            <div class="work-number">04</div>
             <div class="work-visual jenkins" aria-hidden="true">
               <span>GitHub</span>
               <span>Jenkins</span>
@@ -183,18 +218,16 @@
       </section>
 
       <section class="section split-section section-pad" id="about">
-        <div class="sticky-title">
+        <div class="sticky-title reveal">
           <p class="kicker"><span>*</span> About</p>
-          <h2>A fresher with builder energy and DevOps muscle.</h2>
+          <h2>Learning the craft of cloud automation and reliable systems.</h2>
         </div>
         <div class="about-flow">
-          <p class="large-copy">
-            I am Dharanikumar N K, an aspiring Cloud and DevOps Engineer focused on automating
-            infrastructure and streamlining CI/CD workflows. I like the discipline of turning a
-            messy deployment path into a documented, repeatable system.
+          <p class="large-copy reveal">
+            I am Dharanikumar N K, an engineering student and aspiring Cloud &amp; DevOps Engineer. I focus on learning cloud automation, declarative infrastructure with Terraform, container orchestration with Kubernetes (EKS), and GitOps deployment patterns with ArgoCD. I enjoy the process of turning manual setups into clean, documented, and repeatable systems.
           </p>
 
-          <div class="stat-matrix">
+          <div class="stat-matrix reveal">
             <article>
               <span>CGPA</span>
               <strong>7.98</strong>
@@ -208,7 +241,7 @@
             <article>
               <span>Core</span>
               <strong>AWS</strong>
-              <p>Cloud Practitioner Essentials and Cloud Quest training</p>
+              <p>Hands-on experience with EKS, VPCs, IAM policies, and Secrets Manager.</p>
             </article>
             <article>
               <span>Goal</span>
@@ -217,7 +250,7 @@
             </article>
           </div>
 
-          <div class="timeline">
+          <div class="timeline reveal">
             <article>
               <span>2023 - 2027</span>
               <h3>B.E. Electronics and Communication</h3>
@@ -234,19 +267,20 @@
 
       <section class="section stack-section" id="stack">
         <div class="section-pad">
-          <div class="section-head">
+          <div class="section-head reveal">
             <p class="kicker"><span>*</span> Stack ordered by hiring signal</p>
             <h2>Tools that map directly to DevOps work.</h2>
           </div>
-          <div class="stack-grid">
+          <div class="stack-grid reveal">
             <article>
               <span>01</span>
               <h3>Cloud &amp; Infrastructure</h3>
               <ul>
-                <li>AWS</li>
+                <li>AWS (EKS)</li>
                 <li>Terraform</li>
                 <li>Docker</li>
-                <li>Kubernetes</li>
+                <li>Kubernetes (k8s)</li>
+                <li>Helm</li>
                 <li>Linux</li>
               </ul>
             </article>
@@ -254,12 +288,12 @@
               <span>02</span>
               <h3>CI/CD &amp; Quality</h3>
               <ul>
+                <li>ArgoCD</li>
+                <li>GitHub Actions</li>
                 <li>Jenkins</li>
-                <li>GitHub</li>
                 <li>SonarQube</li>
                 <li>AWS CodePipeline</li>
-                <li>AWS CodeBuild</li>
-                <li>AWS CodeDeploy</li>
+                <li>GitHub</li>
               </ul>
             </article>
             <article>
@@ -269,7 +303,7 @@
                 <li>Python</li>
                 <li>Bash</li>
                 <li>Flask</li>
-                <li>Linux commands</li>
+                <li>Linux</li>
                 <li>PuTTY</li>
               </ul>
             </article>
@@ -279,8 +313,8 @@
               <ul>
                 <li>Prometheus</li>
                 <li>Grafana</li>
-                <li>Deployment checks</li>
-                <li>Code quality gates</li>
+                <li>AWS Secrets Manager</li>
+                <li>IAM (IRSA)</li>
               </ul>
             </article>
           </div>
@@ -301,14 +335,13 @@
       </section>
 
       <section class="contact-section" id="contact">
-        <div class="section-pad contact-grid">
+        <div class="section-pad contact-grid reveal">
           <div>
             <h2><em>something</em> boring<span>.</span></h2>
             <a class="email-link magnetic" href="mailto:nkdharanikumar@gmail.com">&rarr; nkdharanikumar@gmail.com</a>
             <div class="social-row">
               <a href="https://github.com/nkdharanikumar" target="_blank" rel="noreferrer">GitHub &nearr;</a>
               <a href="https://www.linkedin.com/in/nkdharanikumar/" target="_blank" rel="noreferrer">LinkedIn &nearr;</a>
-              <a href="https://leetcode.com/u/nkdharanikumar/" target="_blank" rel="noreferrer">LeetCode &nearr;</a>
               <a href="tel:+919677332636">+91 96773 32636</a>
             </div>
           </div>
@@ -316,10 +349,10 @@
           <aside class="availability-card">
             <p class="kicker">Currently</p>
             <dl>
-              <div><dt>Status</dt><dd><span class="status-dot"></span> Open to roles</dd></div>
-              <div><dt>Notice</dt><dd>Immediate / internship-ready</dd></div>
-              <div><dt>Roles</dt><dd>Cloud Eng. / DevOps / SRE Intern</dd></div>
-              <div><dt>Reply time</dt><dd>&lt; 24h</dd></div>
+              <div><dt>Status</dt><dd><span class="status-dot"></span> Open to Opportunities</dd></div>
+              <div><dt>Location</dt><dd>Coimbatore, India</dd></div>
+              <div><dt>Roles</dt><dd>Cloud / DevOps / SRE Intern</dd></div>
+              <div><dt>Availability</dt><dd>Immediate</dd></div>
             </dl>
             <a class="panel-cta light magnetic" href="mailto:nkdharanikumar@gmail.com?subject=DevOps%20opportunity%20for%20Dharanikumar">Send brief &nearr;</a>
           </aside>
@@ -333,6 +366,6 @@
       <a href="#home">Back to top &uarr;</a>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>
